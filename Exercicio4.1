@@ -1,0 +1,358 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tarefa 01\n",
+    "\n",
+    "- Leia os enunciados com atenção\n",
+    "- Saiba que pode haver mais de uma resposta correta\n",
+    "- Insira novas células de código sempre que achar necessário\n",
+    "- Em caso de dúvidas, procure os tutores\n",
+    "- Divirta-se :)\n",
+    "\n",
+    "#### 1)  crie uma série do pandas a partir de uma lista com os dados abaixo:\n",
+    "\n",
+    "Em um estudo sobre alteração na tempreatura global, A NASA disponibiliza dados de diferenças de de temperatura média da superfície terrestre relativos às médias de temperatura entre 1951 e 1980. Os dados originais podem ser vistos no site da NASA/GISS, e estão dispostos a cada década na tabela abaixo.\n",
+    "\n",
+    "|ano|anomalia termica|\n",
+    "|:-:|:----:|\n",
+    "| 1900 | -0.08 |\n",
+    "| 1920 | -0.27 |\n",
+    "| 1940 | 0.12 |\n",
+    "| 1960 | -0.03 |\n",
+    "| 1980 | 0.26 |\n",
+    "| 2000 | 0.40 |\n",
+    "| 2020 | 1.02 |\n",
+    "\n",
+    "Crie uma séries do Pandas a partir de uma lista com esses dados."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1900   -0.08\n",
+      "1920   -0.27\n",
+      "1940    0.12\n",
+      "1960   -0.03\n",
+      "1980    0.26\n",
+      "2000    0.40\n",
+      "2020    1.02\n",
+      "Name: Anomalia Térmica, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "\n",
+    "#Definindo a lista de dados\n",
+    "anos = [1900, 1920, 1940, 1960, 1980, 2000, 2020]\n",
+    "anomalia_termica = [-0.08, -0.27, 0.12, -0.03, 0.26, 0.40, 1.02]\n",
+    "\n",
+    "#Criando a serie no pandas\n",
+    "dados_temperatura = pd.Series(anomalia_termica, index=anos, name=\"Anomalia Térmica\")\n",
+    "\n",
+    "#imprindo a serie\n",
+    "print(dados_temperatura)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 2) Coloque os anos nos índices conforme a tabela."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#Definindo os dados como um dicionario\n",
+    "dados = {\n",
+    "    1900: -0.08,\n",
+    "    1920: -0.27,\n",
+    "    1940: 0.12,\n",
+    "    1960: -0.03,\n",
+    "    1980: 0.26,\n",
+    "    2000: 0.40,\n",
+    "    2020: 1.02\n",
+    "}\n",
+    "\n",
+    "#Criando a serie dos pandas\n",
+    "dados_temperatura = pd.Series(dados, name=\"Anomalia Térmica\")\n",
+    "\n",
+    "#Exibindo a serie\n",
+    "print(dados_temperatura)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 3) A partir do dicionário abaixo, crie uma séries do Pandas:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1900   -0.08\n",
+      "1920   -0.27\n",
+      "1940    0.12\n",
+      "1960   -0.03\n",
+      "1980    0.26\n",
+      "2000    0.40\n",
+      "2020    1.02\n",
+      "Name: Anomalia Termica, dtype: float64\n"
+     ]
+    }
+   ],
+   "source": [
+    "dic_temperaturas = {1900: -.08, 1920: -.27, 1940: .12, 1960: -.03, 1980: .26, 2000: .40, 2020: 1.02}\n",
+    "\n",
+    "Serie_temperaturas = pd.Series(dic_temperaturas, name = \"Anomalia Termica\")\n",
+    "\n",
+    "print(Serie_temperaturas)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 4) Transforme o ndarray abaixo em um dataframe. \n",
+    "O numpy é capaz de gerar arrays n-dimensionais com números pseudo-aleatórios de acordo com uma variedade de distribuições, como no exemplo abaixo. Transforme esse nd-array em um DataFrame."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "       Coluna1     Coluna2     Coluna3\n",
+      "0   121.919906   87.924182   99.670692\n",
+      "1    89.570876  107.656470  106.001231\n",
+      "2    89.200182  116.363679  110.077814\n",
+      "3    98.917288  110.923718  116.883882\n",
+      "4   110.141870  104.855055  116.031967\n",
+      "5   118.482662  104.684719  105.293807\n",
+      "6   104.898089   81.930685   85.943948\n",
+      "7   112.936404  110.421316   92.686105\n",
+      "8    96.249198  103.005975   86.090372\n",
+      "9   108.926150   83.952288  107.796543\n",
+      "10  101.800782  101.476963  100.044409\n",
+      "11  103.195427  100.597187  109.626271\n",
+      "12   83.787960   86.602246  100.479380\n",
+      "13  112.108969   96.615725   92.525299\n",
+      "14   90.605516  110.505191  107.595022\n",
+      "15   92.316304  102.865312   97.495034\n",
+      "16   89.039987  114.048121   97.823221\n",
+      "17   92.871695   98.596538  110.211402\n",
+      "18   91.213386   99.291437  107.048059\n",
+      "19   76.513981  108.451625   89.378480\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.random.normal(100, 10, (20,3))\n",
+    "\n",
+    "df = pd.DataFrame(arr, columns=['Coluna1', 'Coluna2', 'Coluna3'])\n",
+    "\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 5) Nomeie os índices das linhas com inteiros de 1 a 20, e as colunas com os nomes \"x1\", \"x2\", e \"x3\" respectivamente."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            x1          x2          x3\n",
+      "1    98.463062   88.463774   99.971410\n",
+      "2   114.917175  113.011883   93.679740\n",
+      "3    91.412693   96.867316   85.207436\n",
+      "4    92.837347  109.726309  105.024539\n",
+      "5   112.399284   99.330299   97.497477\n",
+      "6   112.592831  101.238765   84.166066\n",
+      "7    91.064207  125.856450  116.230961\n",
+      "8    93.823381   77.297233  101.991610\n",
+      "9    89.454280   97.186246  109.919679\n",
+      "10  106.159935  100.691158   88.443781\n",
+      "11  109.623969  106.400050  119.735531\n",
+      "12  100.902943   96.314442   79.919097\n",
+      "13   98.727474   94.078670  102.447113\n",
+      "14  111.104201   97.163558  106.809641\n",
+      "15   89.680651   87.543174  105.936084\n",
+      "16  105.991621   93.767527  100.032157\n",
+      "17   95.206060  106.487321   88.486899\n",
+      "18   89.811678   89.833626   89.776152\n",
+      "19   95.572132   95.713834   77.436140\n",
+      "20  121.562789   89.552965   99.007921\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.random.normal(100, 10, (20,3))\n",
+    "\n",
+    "#Usamos o index e o range para nomear as linhas de 1 ao 20 e as colunas de x1 a x3\n",
+    "df = pd.DataFrame(arr, columns=['x1', 'x2', 'x3'], index = range (1,21))\n",
+    "\n",
+    "print(df)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 6) No DataFrame do exercício 5, crie uma nova coluna como sendo a média das três colunas, e dê a ela o nome de \"media\" (não recomendo colocar acentos em nomes de variáveis)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            x1          x2          x3       media\n",
+      "1   108.287317   94.749140  111.149413  104.728623\n",
+      "2    94.004650   85.344542  107.603337   95.650843\n",
+      "3    96.928626   95.029877  112.548658  101.502387\n",
+      "4    85.992637  108.618095  101.139228   98.583320\n",
+      "5   110.231804  102.218995   92.538336  101.663045\n",
+      "6    90.388904  108.628697  111.532822  103.516808\n",
+      "7   106.620452  106.605643  104.270788  105.832294\n",
+      "8   103.627790   82.433227   89.941178   92.000732\n",
+      "9   104.975231  119.226631  107.911907  110.704590\n",
+      "10  109.250299   93.693734  106.198871  103.047635\n",
+      "11  104.321933  108.755648  101.671061  104.916214\n",
+      "12  103.417843  123.172552   85.042448  103.877614\n",
+      "13   96.966235  106.568588   96.397337   99.977387\n",
+      "14  105.741157   85.532081  102.522580   97.931939\n",
+      "15  103.441688  103.473383   99.372304  102.095792\n",
+      "16   93.428598  102.326888   96.725769   97.493752\n",
+      "17   88.423051   87.976542  106.538509   94.312700\n",
+      "18   89.358121  113.166515  107.344260  103.289632\n",
+      "19   93.679006   92.580515  107.062467   97.773996\n",
+      "20   93.079903   98.364997  103.397482   98.280794\n"
+     ]
+    }
+   ],
+   "source": [
+    "arr = np.random.normal(100, 10, (20,3))\n",
+    "\n",
+    "#Usamos o index e o range para nomear as linhas de 1 ao 20 e as colunas de x1 a x3\n",
+    "df = pd.DataFrame(arr, columns=['x1', 'x2', 'x3'], index = range (1,21))\n",
+    "\n",
+    "#Uando o mean para gerar a media entre as colunas\n",
+    "df['media'] = df.mean(axis=1)\n",
+    "\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### 7) No DataFrame do exercício 6, crie uma nova coluna chamada \"log_med\", contendo o logaritmo natural da média calculada no exercício 6 <br>"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "            x1          x2          x3       media   log_med\n",
+      "1   108.287317   94.749140  111.149413  104.728623  4.651372\n",
+      "2    94.004650   85.344542  107.603337   95.650843  4.560705\n",
+      "3    96.928626   95.029877  112.548658  101.502387  4.620082\n",
+      "4    85.992637  108.618095  101.139228   98.583320  4.590902\n",
+      "5   110.231804  102.218995   92.538336  101.663045  4.621664\n",
+      "6    90.388904  108.628697  111.532822  103.516808  4.639734\n",
+      "7   106.620452  106.605643  104.270788  105.832294  4.661856\n",
+      "8   103.627790   82.433227   89.941178   92.000732  4.521797\n",
+      "9   104.975231  119.226631  107.911907  110.704590  4.706865\n",
+      "10  109.250299   93.693734  106.198871  103.047635  4.635191\n",
+      "11  104.321933  108.755648  101.671061  104.916214  4.653162\n",
+      "12  103.417843  123.172552   85.042448  103.877614  4.643213\n",
+      "13   96.966235  106.568588   96.397337   99.977387  4.604944\n",
+      "14  105.741157   85.532081  102.522580   97.931939  4.584273\n",
+      "15  103.441688  103.473383   99.372304  102.095792  4.625912\n",
+      "16   93.428598  102.326888   96.725769   97.493752  4.579788\n",
+      "17   88.423051   87.976542  106.538509   94.312700  4.546616\n",
+      "18   89.358121  113.166515  107.344260  103.289632  4.637537\n",
+      "19   93.679006   92.580515  107.062467   97.773996  4.582659\n",
+      "20   93.079903   98.364997  103.397482   98.280794  4.587829\n"
+     ]
+    }
+   ],
+   "source": [
+    "df['log_med'] = np.log(df['media'])\n",
+    "\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.4"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
